@@ -11,45 +11,77 @@ Ce laboratoire porte sur le traitement automatique du langage naturel (NLP) en P
 - Appliquer la lemmatisation.
 - Transformer les textes en représentations numériques.
 
-## Travaux réalisés
 
-### Exercice 1 : Environnement NLP
-- Découverte des bibliothèques Python utilisées en NLP.
-- Installation et utilisation de NLTK, spaCy et scikit-learn.
+2. Prérequis
+JDK 8+
+IDE/editor et terminal Java
+Connaissances : classes, héritage, méthodes, tableaux
+3. Plan de modélisation
+Classes
+FsItem (abstraite)
+FileItem extends FsItem
+Directory extends FsItem
+FileSystem (gestion d’un tableau dynamique de FsItem)
+Main (programme de test)
+Attributs & méthodes
+FsItem (abstraite)
+protected String name;
+public FsItem(String name)
+public abstract long getSize()
+public String getName()
+public String toString() (affiche name (taille))
+FileItem
+private long size;
+public FileItem(String name, long size)
+@Override getSize() => size
+Directory
+private FsItem[] children;
+private int count;
+public Directory(String name) (tableau initial taille 4)
+public void add(FsItem item) (double tableau si plein)
+@Override getSize() additionne récursivement getSize() de tous les enfants
+public void list(int indent) (affiche récursivement arbre)
+FileSystem
+private FsItem[] items; private int count;
+public FileSystem()
+public void addRoot(FsItem item)
+public void listAll() affiche chaque root avec son list(0)
+public long totalSize() somme de getSize() de tous les roots
+Main
+construit plusieurs FileItem et Directory imbriqués, les ajoute au FileSystem, puis affiche l’arborescence et la taille totale.
+UML simplifié
++--------------------+
+        |      FsItem        | «abstract»
+        +--------------------+
+        | - name : String    |
+        +--------------------+
+        | + getSize(): long  | «abstract»  
+        | + getName():String |
+        | + toString():String|
+        +---------▲----------+
+                  |
+    +-------------+--------------+
+    |                            |
++-----------+              +---------------+
+| FileItem  |              |  Directory    |
++-----------+              +---------------+
+| - size    |              | - children[]  |
++-----------+              | - count : int |
+| +getSize()|              | + add(item)   |
++-----------+              | + getSize()   |
+                           | + list(indent)|
+                           +---------------+
 
-### Exercice 2 : Prétraitement du texte
-- Nettoyage des textes.
-- Tokenisation des phrases et des mots.
-- Suppression des stopwords.
-- Lemmatisation des mots.
-
-### Exercice 3 : Bag of Words
-- Utilisation de `CountVectorizer`.
-- Transformation de phrases en une matrice numérique.
-- Extraction du vocabulaire et comptage des mots.
-
-### Exercice 4 : TF-IDF
-- Utilisation de `TfidfVectorizer`.
-- Calcul des poids des mots dans les documents.
-- Comparaison de l'importance des mots dans plusieurs phrases.
-
-### Exercice 5 : Analyse des textes
-- Analyse simple des phrases.
-- Calcul du nombre de mots.
-- Manipulation et exploration des données textuelles.
-
-## Technologies utilisées
-- Python
-- NLTK
-- spaCy
-- scikit-learn
-- `CountVectorizer`
-- `TfidfVectorizer`
-- Jupyter Notebook
-
-## Conclusion
-Ce TP permet de comprendre les principales étapes du traitement automatique du langage naturel, depuis le nettoyage des textes jusqu'à leur transformation en vecteurs numériques exploitables par les algorithmes de Machine Learning.
-
++-----------------+
+|  FileSystem     |
++-----------------+
+| - items[]       |
+| - count : int   |
++-----------------+
+| + addRoot(...)  |
+| + listAll()     |
+| + totalSize()   |
++-----------------+
 ## Auteur
 Ikram Houmaid
 <img width="309" height="124" alt="image" src="https://github.com/user-attachments/assets/8c11672f-eeb2-4fda-9c0c-0a55b05ed0ba" />
