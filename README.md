@@ -1,7 +1,83 @@
-# Lab 7 — Traitement du Langage Naturel (NLP)
+# TP Java – Classes abstraites et polymorphisme
 
 ## Description
-Ce laboratoire porte sur le traitement automatique du langage naturel (NLP) en Python. Il permet de découvrir les techniques de prétraitement et de représentation numérique des textes.
+Ce TP contient deux exercices réalisés en Java pour pratiquer les classes abstraites, l'héritage, le polymorphisme et la gestion des tableaux dynamiques.
+
+## Exercice 1 : Gestion de la paie des employés
+
+### Objectif
+Développer un système de gestion de la paie permettant de calculer le salaire de différents types d'employés.
+
+### Classes utilisées
+- `Employe` : classe abstraite qui définit les informations communes aux employés.
+- `EmployeHoraire` : calcule le salaire selon le taux horaire et les heures travaillées.
+- `EmployeSalarie` : représente un employé avec un salaire mensuel fixe.
+- `Vendeur` : représente un employé salarié avec une commission supplémentaire.
+- `Entreprise` : gère les employés dans un tableau dynamique, affiche les salaires et calcule la masse salariale totale.
+- `Main` : contient le programme principal de test.
+
+### Notions étudiées
+- Classes abstraites et méthodes abstraites.
+- Héritage et redéfinition des méthodes.
+- Polymorphisme.
+- Tableaux dynamiques.
+- Calcul des salaires et de la masse salariale.
+
+## Exercice 2 : Modélisation d'un système de fichiers
+
+### Objectif
+Créer un mini-système de fichiers capable de représenter des fichiers et des répertoires et de calculer leur taille totale.
+
+### Classes utilisées
+- `FsItem` : classe abstraite représentant un élément du système de fichiers.
+- `FileItem` : représente un fichier avec un nom et une taille.
+- `Directory` : représente un répertoire contenant des fichiers ou d'autres répertoires.
+- `FileSystem` : gère les éléments racine, affiche l'arborescence et calcule la taille totale.
+- `Main` : crée des fichiers et des répertoires et teste le système.
+
+### Notions étudiées
+- Classes abstraites et héritage.
+- Polymorphisme.
+- Tableaux dynamiques.
+- Parcours récursif d'une arborescence.
+- Calcul de la taille totale des fichiers et des répertoires.
+
+## Technologies utilisées
+- Langage : Java
+- JDK : 8 ou version ultérieure
+- IDE : Eclipse ou IntelliJ IDEA
+
+## Organisation du projet
+
+Les classes Java sont organisées dans le package `com.example.tp`.
+
+```text
+src/
+└── com/
+    └── example/
+        └── tp/
+            ├── Employe.java
+            ├── EmployeHoraire.java
+            ├── EmployeSalarie.java
+            ├── Vendeur.java
+            ├── Entreprise.java
+            ├── FsItem.java
+            ├── FileItem.java
+            ├── Directory.java
+            ├── FileSystem.java
+            └── Main.java
+```
+
+**Remarque :** les deux exercices possèdent chacun leur propre classe `Main`. Pour les exécuter dans le même package, il faut utiliser deux classes principales portant des noms différents, par exemple `MainPaie` et `MainFileSystem`, ou placer les exercices dans des packages séparés.
+
+## Exécution
+1. Ouvrir le projet dans Eclipse ou IntelliJ IDEA.
+2. Vérifier que toutes les classes sont dans le package `com.example.tp`.
+3. Exécuter la classe principale correspondant à l'exercice souhaité.
+
+## Conclusion
+Ce TP permet de comprendre l'utilisation des classes abstraites et du polymorphisme en Java, tout en mettant en pratique l'héritage, les tableaux dynamiques et la récursivité.
+
 
 ## Objectifs
 - Comprendre les bases du NLP.
